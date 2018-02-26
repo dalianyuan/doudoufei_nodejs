@@ -1,0 +1,147 @@
+body{
+    background: url(../images/body_bj.jpg);
+    padding: 10px;
+    min-width: 773px;
+}
+h1{
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    font-weight: normal;
+    padding: 7px 10px;
+    margin: 0 0 10px 0;
+    overflow: hidden;
+}
+h1>.span1,h1>.span2{
+    color: #4c4c4c;
+    font-size: 18px;
+    font-weight: normal;
+}
+h1>.span1>a:hover{
+	color: #eb8a3d;
+	text-decoration: underline;
+}
+h1>.span3{
+    display: inline-block;
+    margin: -6px 0 0 10px;
+}
+h1>.span4>a{
+	display: block;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 10px 0 23px;
+    background: #c43926 url(../images/icon_add02.gif) no-repeat 6px center;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+}
+h1>.span4>a:hover{
+    background-color: #ca4d3c;
+}
+
+#main{
+    background: #f3f3f3;
+    border: 1px solid #d7d7d7;
+    margin: 0 0 10px 0;
+    padding: 1px;
+}
+#bar{
+    background: #efefef;
+    padding-left: 10px;
+    height: 39px;
+}
+#bar p>span{
+	float: left;
+    padding: 0 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #787878;
+    line-height: 39px;
+    cursor: pointer;
+}
+#bar p>span.active{
+    background: #fefefe;
+    height: 39px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #192E32;
+}
+
+#form{
+    padding: 10px;
+    background: #fefefe;
+}
+#form table{
+	width: 90%;
+	margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+#form table td{
+	padding: 5px 0;
+}
+#form table .lable{
+    text-align: right;
+    font-weight: bold;
+    width: 30%;
+    padding: 5px 1em;
+    line-height: 30px;
+    vertical-align: top;
+}
+#form table input{
+	outline: 0;
+	height: 16px;
+	padding: 1px 0;
+}
+#form table select{
+	height: 22px;
+}
+#form table select.style{
+	height: 20px;
+	margin: 1px 8px;
+}
+#form table .xing{
+	margin-left: 8px;
+	font-size: 18px;
+	color: #f00;
+}
+#form table .notice{
+	display: none;
+	color: #666;
+}
+#form table .tianjia{
+    margin: 0 5px;
+    padding: 1px 5px;
+    border: 1px solid #91C4D0;
+    border-right: 2px solid #278296;
+    border-bottom: 2px solid #278296;
+    background: #DDEEF2;
+    font-weight: 400;
+}
+#form table .btn{
+	padding: 5px 15px;
+    margin: 2px 2px;
+    border: none;
+    background: #ff3f3f;
+    color: #FFF;
+    cursor: pointer;
+    border-radius: 3px;
+}
+#form table .price_btn{
+	height: 22px;
+	margin: 0 8px;
+}
+#form table .w58{
+	width: 58px;
+	margin: 0 4px;
+}
+#form table .w88{
+	width: 88px;
+}
+#form table .cuxiao{
+	border: 1px solid #ccc;
+	height: 18px;
+	background-color: #EBEBE4;
+}

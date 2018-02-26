@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../public/stylesheets/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../public/stylesheets/main.css"/>
+		<title>ECSHOP Main</title>
+	</head>
+	<body>
+		<h1>
+			<span class="span1 left">
+				<a href="javascript:;">ECSHOP管理中心 </a>
+			</span>
+			<span class="span2 left">&nbsp;-&nbsp; 添加新商品</span>
+			<span class="span3 left">
+				<a href="javascript:;">
+					<img src="../public/images/jnsy.png"/>
+				</a>
+			</span>
+			<span class="span4 right">
+				<a href="javascript:;">商品列表</a>
+			</span>
+		</h1>
+		<div id="main">
+			<div id="bar">
+				<p>
+					<span class="active">通用信息</span>
+					<span>详细描述</span>
+					<span>其他信息</span>
+					<span>商品属性</span>
+					<span>商品相册</span>
+					<span>关联商品</span>
+					<span>配件</span>
+					<span>关联文章</span>
+				</p>
+			</div>
+			<div id="form">
+				<!--添加商品,用form表单提交数据-->
+				<form action="" method="post" enctype="multipart/form-data">
+					<!--通用信息开始-->
+					<table class="general">
+						<tr>
+							<td class="lable">商品名称：</td>
+							<td>
+								<input class="left" type="text" name="goods_name"/>
+								<select class="left style" name="goods_name_style">
+									<option value="">字体样式</option>
+									<option value="strong">加粗</option>
+									<option value="em">斜体</option>
+									<option value="u">下划线</option>
+									<option value="del">删除线</option>
+								</select>
+								<span class="xing">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">
+								<a href="javascript:;" title="点击此处查看提示信息">
+									<img src="../public/images/notice.gif"/>
+								</a>
+								商品货号：
+							</td>
+							<td>
+								<input type="text" name="goods_id"/>
+								<p class="notice">如果您不输入商品货号，系统将自动生成一个唯一的货号。</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">商品分类：</td>
+							<td>
+								<select name="goods_type">
+									<option value="">请选择：</option>
+									<option value="ss">首饰</option>
+									<option value="xb">箱包</option>
+									<option value="yf">衣服</option>
+									<option value="hw">户外</option>
+									<option value="dz">电子产品</option>
+								</select>
+								<a href="javascript:;" class="tianjia">添加分类</a>
+								<span class="xing">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">扩展分类：</td>
+							<td><button class="btn">添加</button></td>
+						</tr>
+						<tr>
+							<td class="lable">商品品牌：</td>
+							<td>
+								<select name="goods_sign">
+									<option value="">请选择：</option>
+									<option value="ad">阿迪达斯</option>
+									<option value="apple">iPhone</option>
+									<option value="bm">彪马</option>
+									<option value="shl">施华洛</option>
+									<option value="dior">Dior</option>
+									<option value="lenovo">联想</option>
+								</select>
+								<a href="javascript:;" class="tianjia">添加品牌</a>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">本店售价：</td>
+							<td>
+								<input type="text" name="goods_price_self" class="left"/>
+								<input class="price_btn left" type="button" value="按市场价计算" />
+								<span class="xing">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">
+								<a href="javascript:;" title="点击此处查看提示信息">
+									<img src="../public/images/notice.gif"/>
+								</a>
+								会员价格：
+							</td>
+							<td>
+								注册用户<input class="w58" type="text" value="-1"/>
+								代销用户<input class="w58" type="text" value="-1"/>
+								vip<input class="w58" type="text" value="-1"/>
+								<p class="notice">会员价格为-1时表示会员价按会员等级折扣率计算。你也可以为每个等级指定一个固定价格</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">
+								<a href="javascript:;" title="点击此处查看提示信息">
+									<img src="../public/images/notice.gif"/>
+								</a>
+								商品优惠价格：
+							</td>
+							<td>
+								[+]优惠数量<input class="w58" type="text"/>
+								优惠价格<input class="w58" type="text"/>
+								<p class="notice">购买数量达到优惠数量时享受的优惠价格</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">市场售价：</td>
+							<td>
+								<input type="text" name="goods_price_shichang" class="left"/>
+								<input class="price_btn left" type="button" value="取整数" />
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">虚拟销量：</td>
+							<td>
+								<input type="text" name="goods_num" value="0"/>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">
+								<a href="javascript:;" title="点击此处查看提示信息">
+									<img src="../public/images/notice.gif"/>
+								</a>
+								赠送消费积分数：
+							</td>
+							<td>
+								<input type="text" value="-1"/>
+								<p class="notice">购买该商品时赠送消费积分数,-1表示按商品价格赠送</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">
+								<a href="javascript:;" title="点击此处查看提示信息">
+									<img src="../public/images/notice.gif"/>
+								</a>
+								赠送等级积分数：
+							</td>
+							<td>
+								<input type="text" value="-1"/>
+								<p class="notice">购买该商品时赠送等级积分数,-1表示按商品价格赠送</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">
+								<a href="javascript:;" title="点击此处查看提示信息">
+									<img src="../public/images/notice.gif"/>
+								</a>
+								积分购买金额：
+							</td>
+							<td>
+								<input type="text" value="0"/>
+								<p class="notice">(此处需填写金额)购买该商品时最多可以使用积分的金额</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">促销价：</td>
+							<td>
+								<input class="cuxiao" type="text" name="goods_price_cuxiao" value="0"/>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">促销日期：</td>
+							<td>
+								<input class="w88" type="text" value="2018-02-26"/>
+								<button class="btn">选择</button>&nbsp;-
+								<input class="w88" type="text" value="2018-03-16"/>
+								<button class="btn">选择</button>
+							</td>
+						</tr>
+						<tr>
+							<td class="lable">上传商品图片：</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="lable">上传商品缩略图：</td>
+							<td></td>
+						</tr>
+					</table>
+					<!--通用信息结束-->
+					
+					<!--详细描述开始-->
+					<!--详细描述结束-->
+					
+					<!--其他信息开始-->
+					<!--其他信息结束-->
+					
+					<!--商品属性开始-->
+					<!--商品属性结束-->
+					
+					<!--商品相册开始-->
+					<!--商品相册结束-->
+					
+					<!--关联商品开始-->
+					<!--关联商品结束-->
+					
+					<!--配件开始-->
+					<!--配件结束-->
+					
+					<!--关联文章开始-->
+					<!--关联文章结束-->
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
