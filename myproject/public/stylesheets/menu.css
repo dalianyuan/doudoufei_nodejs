@@ -1,0 +1,111 @@
+body{
+	background: #212121;
+}
+#bar{
+    padding-left: 10px;
+    height: 34px;
+    background: #303030;
+}
+#bar .tab{
+    line-height: 33px;
+    font-weight: bold;
+    padding: 4px 15px 4px 18px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#menu ul{
+    color: #335B64;
+}
+#menu li{
+    text-indent: 40px;
+	cursor: pointer;
+}
+#menu-ul>li{
+	display: block;
+    border-top: #7f7f7f 1px solid;
+    width: 100%;
+    color: #FFF;
+    line-height: 42px;
+    text-align: left;
+}
+#menu-ul>li.list1{
+	background: #575757 url(../images/menu_1.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list2{
+	background: #575757 url(../images/menu_2.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list3{
+	background: #575757 url(../images/menu_3.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list4{
+	background: #575757 url(../images/menu_4.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list5{
+	background: #575757 url(../images/menu_5.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list6{
+	background: #575757 url(../images/menu_6.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list7{
+	background: #575757 url(../images/menu_7.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list8{
+	background: #575757 url(../images/menu_8.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list9{
+	background: #575757 url(../images/menu_9.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list10{
+	background: #575757 url(../images/menu_10.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list11{
+	background: #575757 url(../images/menu_11.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list12{
+	background: #575757 url(../images/menu_12.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list13{
+	background: #575757 url(../images/menu_13.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list14{
+	background: #575757 url(../images/menu_14.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list15{
+	background: #575757 url(../images/menu_15.png) 9px 0 no-repeat;
+}
+#menu-ul>li.list16{
+	background: #575757 url(../images/menu_16.png) 9px 0 no-repeat;
+}
+#menu-ul>li:hover{
+	background-color: #454545;
+}
+#menu-ul .ul2{
+	display: none;
+}
+#menu-ul .ul2>li{
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    font-weight: normal;
+    background: #575757;
+}
+#menu-ul .ul2>li>a{
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    color: #d7d7d7;
+}
+#menu-ul .ul2>li>a.on,#menu-ul .ul2>li>a:hover{
+    background-color: #797979;
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+
+

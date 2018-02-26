@@ -1,0 +1,94 @@
+body{
+	color: #192E32;
+}
+#header{
+	background: #303030;
+	height: 76px;
+}
+#logo{
+    margin-left: 30px;
+    margin-top: 20px;
+    width: 262px;
+    height: 45px;
+}
+#menu{
+    text-align: center;
+    width: 922px;
+    position: absolute;
+    right: 0px;
+    height: 75px;
+}
+#menu li{
+	width: 82px;
+	height: 82px;
+}
+#menu li:nth-child(1){
+	width: 102px;
+}
+#menu li:nth-child(1) a{
+    color: #ff0;
+    width: 102px;
+    font-weight: bold;
+}
+#menu li a{
+    text-align: center;
+    height: 67px;
+    width: 82px;
+    padding-top: 8px;
+    display: block;
+    color: #FFF;
+}
+#menu li a:hover{
+	background: #404040;
+}
+#menu li a img{
+	margin: auto;
+    display: block;
+    height: 35px;
+}
+#menu li a span{
+    margin-top: 6px;
+    display: block;
+}
+
+#nav{
+	background: #575757;
+    height: 41px;
+    border-bottom: 1px solid #212121;
+}
+#nav ul{
+	padding-left: 15px;
+}
+#nav li{
+	height: 41px;
+	line-height: 41px;
+}
+#nav li:hover{
+	background: #454545;
+}
+#nav li a{
+    float: LEFT;
+    color: #FFF;
+    padding: 0px 12px;
+}
+#nav li a>span{
+	margin-left: 10px;
+}
+#nav li a>span.num{
+    width: 32px;
+    height: 16px;
+    background: url(../images/index-11_22.png) no-repeat scroll;
+    display: inline-block;
+    line-height: 16px;
+    vertical-align: middle;
+    text-align: center;
+}
+#nav li .fenge{
+	display: inline-block;
+    height: 13px;
+    width: 0px;
+    border-right: 1px solid #656565;
+    border-left: 1px solid #303030;
+    margin-top: 15px;
+}
+

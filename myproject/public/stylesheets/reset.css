@@ -1,0 +1,12 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select,figure{margin:0;padding:0;} 
+body{font:12px "微软雅黑","宋体","Arial Narrow",HELVETICA;background:#fff;}
+a{color:#000;text-decoration:none;} 
+/*a:hover{color:#cd0200;text-decoration:underline} */
+em,i{font-style:normal;}
+h3{font-weight: normal;}
+li{list-style:none;}
+img{border:0;vertical-align:middle;} 
+table{border-collapse:collapse;border-spacing:0;}
+.left{float: left;}
+.right{float: right;}
+.clearfix:after{content:"";height:0;display:block;clear:both;overflow:hidden;visibility:hidden;}
