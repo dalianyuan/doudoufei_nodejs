@@ -27,6 +27,36 @@ router.post('/api/login', function(req, res){
 	})
 })
 
+router.post("/api/add_goods", function(req, res){
+	var Form = new multiparty.Form({
+		uploadDir: "./public/images"
+	})
+	Form.parse(req, function(err, body, files){
+		var goods_name = body.goods_name[0];
+		var goods_id = body.goods_id[0];
+		var goods_price = body.goods_price[0];
+		var count = body.count[0];
+		var goods_num = body.goods_num[0];
+		var picName = files.pic[0].path;
+		picName = picName.substr(picName.lastIndexOf("\\") + 1);
+
+		var gm = new GoodsModel();
+		gm.goods_name = goods_name;
+		gm.goods_id = goods_id;
+		gm.goods_price = goods_price;
+		gm.count = count;
+		gm.goods_num = goods_num;
+		gm.picName = picName;
+		gm.save(function(err){
+			if(!err) {
+				res.send("商品保存成功");
+			} else {
+				res.send("商品保存失败");
+			}
+		})
+	})
+})
+
 router.get('/index', function(req, res, next) {
   res.render('index', {});
 });

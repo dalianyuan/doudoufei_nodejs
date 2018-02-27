@@ -36,14 +36,14 @@
 				</p>
 			</div>
 			<div id="form">
-				<!--添加商品,用form表单提交数据-->
-				<form action="" method="post" enctype="multipart/form-data">
+				<!--添加商品,用ajax提交数据时不需要form表单-->
+				<!--<form action="" method="post" enctype="multipart/form-data">-->
 					<!--通用信息开始-->
 					<table class="tableOn">
 						<tr>
 							<td class="label">商品名称：</td>
 							<td>
-								<input class="left" type="text" name="goods_name"/>
+								<input class="left" type="text" id="goods_name"/>
 								<select class="left style" name="goods_name_style">
 									<option value="">字体样式</option>
 									<option value="strong">加粗</option>
@@ -62,7 +62,7 @@
 								商品货号：
 							</td>
 							<td>
-								<input type="text" name="goods_id"/>
+								<input type="text" id="goods_id"/>
 								<p class="notice">如果您不输入商品货号，系统将自动生成一个唯一的货号。</p>
 							</td>
 						</tr>
@@ -103,7 +103,7 @@
 						<tr>
 							<td class="label">本店售价：</td>
 							<td>
-								<input type="text" name="goods_price_self" class="left"/>
+								<input type="text" id="goods_price" class="left"/>
 								<input class="price_btn left" type="button" value="按市场价计算" />
 								<span class="xing">*</span>
 							</td>
@@ -145,7 +145,7 @@
 						<tr>
 							<td class="label">虚拟销量：</td>
 							<td>
-								<input type="text" name="goods_num" value="0"/>
+								<input type="text" id="goods_num" value="0"/>
 							</td>
 						</tr>
 						<tr>
@@ -240,7 +240,7 @@
 								商品库存数量：
 							</td>
 							<td>
-								<input type="text" value="1"/>
+								<input id="count" type="text" value="100"/>
 								<p class="notice">库存在商品为虚货或商品存在货品时为不可编辑状态，库存数值取决于其虚货数量或货品数量</p>
 							</td>
 						</tr>
@@ -434,10 +434,10 @@
 					
 					<!--确定和重置按钮-->
 					<div id="subBtn">
-						<button class="btn" id="btnOk">确定</button>
+						<button class="btn" id="btnOk" onclick="addGoods()">确定</button>
 						<button class="btn">重置</button>
 					</div>
-				</form>
+				<!--</form>-->
 			</div>
 		</div>
 		<div id="footer">
@@ -447,11 +447,42 @@
 	</body>
 </html>
 <script type="text/javascript">
-	window.onload = function(){
-		$( "#bar span" ).click( function(){
-			var index = $(this).index();
-			$(this).addClass("active").siblings().removeClass("active");
-			$("#form table").eq(index).addClass("tableOn").siblings().removeClass("tableOn");
-		} )
+	
+	//tab切换
+	$( "#bar span" ).click( function(){
+		var index = $(this).index();
+		$(this).addClass("active").siblings().removeClass("active");
+		$("#form table").eq(index).addClass("tableOn").siblings().removeClass("tableOn");
+	} )
+	
+	// JQ的ajax不支持文件上传。
+	// 原生js来做文件上传 or 使用表单进行文件上传(兼容性最好)
+	/*
+	 goods_name  : String,//商品名称
+     goods_id    : String,//货号
+     goods_price : String,//本店价格
+     count       : Number,//库存
+     goods_num   : Number,//虚拟销量
+     pic         : String,//商品图片
+	 * */
+	function addGoods(){
+		var ajax = null;
+		if( XMLHttpRequest ){
+			ajax = new XMLHttpRequest();
+		}else{
+			ajax = new ActiveXObject('Microsoft.XMLHTTP'); 
+		}
+		ajax.open("post", "/api/add_goods");
+		ajax.onreadystatechange = function(res) {
+			console.log(res);
+		}
+		var form = new FormData();
+		form.append("goods_name", $("#goods_name").val());
+		form.append("goods_id", $("#goods_id").val());
+		form.append("goods_price", $("#goods_price").val());
+		form.append("count", $("#count").val());
+		form.append("goods_num", $("#goods_num").val());
+		form.append("pic", document.getElementById("pic").files[0]);
+		ajax.send(form); // form表单数据(post传参)
 	}
 </script>

@@ -137,6 +137,7 @@ h1>.span4>a:hover{
     color: #FFF;
     cursor: pointer;
     border-radius: 3px;
+    outline: 0;
 }
 #form table .price_btn{
 	height: 22px;
