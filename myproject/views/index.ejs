@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+  	<meta charset="UTF-8">
+    <title>ECSHOP管理中心</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+	<frameset rows="118,*" framespacing="0" border="0">
+		<frame src="top.ejs" />
+		<frameset cols="198,*">
+			<frame src="menu.ejs"/>
+			<frame src="main.ejs"/>
+		</frameset>
+	</frameset>
 </html>

@@ -38,9 +38,9 @@
 				<!--添加商品,用form表单提交数据-->
 				<form action="" method="post" enctype="multipart/form-data">
 					<!--通用信息开始-->
-					<table class="general">
+					<table class="tableOn">
 						<tr>
-							<td class="lable">商品名称：</td>
+							<td class="label">商品名称：</td>
 							<td>
 								<input class="left" type="text" name="goods_name"/>
 								<select class="left style" name="goods_name_style">
@@ -54,7 +54,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">
+							<td class="label">
 								<a href="javascript:;" title="点击此处查看提示信息">
 									<img src="../public/images/notice.gif"/>
 								</a>
@@ -66,7 +66,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">商品分类：</td>
+							<td class="label">商品分类：</td>
 							<td>
 								<select name="goods_type">
 									<option value="">请选择：</option>
@@ -81,11 +81,11 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">扩展分类：</td>
-							<td><button class="btn">添加</button></td>
+							<td class="label">扩展分类：</td>
+							<td><a class="btn">添加</a></td>
 						</tr>
 						<tr>
-							<td class="lable">商品品牌：</td>
+							<td class="label">商品品牌：</td>
 							<td>
 								<select name="goods_sign">
 									<option value="">请选择：</option>
@@ -100,7 +100,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">本店售价：</td>
+							<td class="label">本店售价：</td>
 							<td>
 								<input type="text" name="goods_price_self" class="left"/>
 								<input class="price_btn left" type="button" value="按市场价计算" />
@@ -108,7 +108,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">
+							<td class="label">
 								<a href="javascript:;" title="点击此处查看提示信息">
 									<img src="../public/images/notice.gif"/>
 								</a>
@@ -122,7 +122,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">
+							<td class="label">
 								<a href="javascript:;" title="点击此处查看提示信息">
 									<img src="../public/images/notice.gif"/>
 								</a>
@@ -135,20 +135,20 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">市场售价：</td>
+							<td class="label">市场售价：</td>
 							<td>
 								<input type="text" name="goods_price_shichang" class="left"/>
 								<input class="price_btn left" type="button" value="取整数" />
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">虚拟销量：</td>
+							<td class="label">虚拟销量：</td>
 							<td>
 								<input type="text" name="goods_num" value="0"/>
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">
+							<td class="label">
 								<a href="javascript:;" title="点击此处查看提示信息">
 									<img src="../public/images/notice.gif"/>
 								</a>
@@ -160,7 +160,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">
+							<td class="label">
 								<a href="javascript:;" title="点击此处查看提示信息">
 									<img src="../public/images/notice.gif"/>
 								</a>
@@ -172,7 +172,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">
+							<td class="label">
 								<a href="javascript:;" title="点击此处查看提示信息">
 									<img src="../public/images/notice.gif"/>
 								</a>
@@ -184,53 +184,264 @@
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">促销价：</td>
+							<td class="label">促销价：</td>
 							<td>
 								<input class="cuxiao" type="text" name="goods_price_cuxiao" value="0"/>
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">促销日期：</td>
+							<td class="label">促销日期：</td>
 							<td>
 								<input class="w88" type="text" value="2018-02-26"/>
-								<button class="btn">选择</button>&nbsp;-
+								<a class="btn">选择</a>&nbsp;-
 								<input class="w88" type="text" value="2018-03-16"/>
-								<button class="btn">选择</button>
+								<a class="btn">选择</a>
 							</td>
 						</tr>
 						<tr>
-							<td class="lable">上传商品图片：</td>
-							<td></td>
+							<td class="label">上传商品图片：</td>
+							<td>
+								<input type="file" name="goods_pic" class="picFile" id="pic" value="未选择任何文件"/>
+								<img src="../public/images/no.gif"/><br/>
+								<input type="text" name="goods_picUrl" class="picUrl" id="picUrl" value="商品图片外部URL"/>
+							</td>
 						</tr>
 						<tr>
-							<td class="lable">上传商品缩略图：</td>
-							<td></td>
+							<td class="label">上传商品缩略图：</td>
+							<td>
+								<input type="file" name="goods_picS" class="picFile" id="picS" value="未选择任何文件"/>
+								<img src="../public/images/no.gif"/><br/>
+								<input type="text" name="goods_picUrlS" class="picUrl" id="picUrlS" value="商品缩略图外部URL"/>
+								<p class="ck">
+									<input type="checkbox" name="ck" class="left" id="ck" checked="checked"/>
+									<label for="ck">自动生成商品缩略图</label>
+								</p>
+							</td>
 						</tr>
 					</table>
 					<!--通用信息结束-->
 					
 					<!--详细描述开始-->
+					<table>
+						<tr><td>
+							<textarea id="detail"></textarea>
+						</td></tr>
+					</table>
 					<!--详细描述结束-->
 					
 					<!--其他信息开始-->
+					<table>
+						<tr>
+							<td class="label">
+								<a href="javascript:;" title="点击此处查看提示信息">
+									<img src="../public/images/notice.gif"/>
+								</a>
+								商品库存数量：
+							</td>
+							<td>
+								<input type="text" value="1"/>
+								<p class="notice">库存在商品为虚货或商品存在货品时为不可编辑状态，库存数值取决于其虚货数量或货品数量</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="label">
+								加入推荐：
+							</td>
+							<td>
+								<p class="ck">
+									<input type="checkbox" class="left" id="ck1" />
+									<label class="left lab" for="ck1">精品</label>
+									<input type="checkbox" class="left" id="ck2" />
+									<label class="left lab" for="ck2">新品</label>
+									<input type="checkbox" class="left" id="ck3" />
+									<label class="left lab" for="ck3">热销</label>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td class="label">
+								<a href="javascript:;" title="点击此处查看提示信息">
+									<img src="../public/images/notice.gif"/>
+								</a>
+								商品简单描述：
+							</td>
+							<td>
+								<textarea name="" rows="7" cols="42"></textarea>
+							</td>
+						</tr>
+					</table>
 					<!--其他信息结束-->
 					
 					<!--商品属性开始-->
+					<table>
+						<tr>
+							<td class="label">
+								<a href="javascript:;" title="点击此处查看提示信息">
+									<img src="../public/images/notice.gif"/>
+								</a>
+								商品类型：
+							</td>
+							<td>
+								<select name="">
+									<option value="">请选择商品类型</option>
+									<option value="ss">首饰</option>
+									<option value="xb">箱包</option>
+									<option value="yf">衣服</option>
+									<option value="hw">户外</option>
+									<option value="dz">电子产品</option>
+								</select>
+								<p class="notice">请选择商品的所属类型，进而完善此商品的属性</p>
+							</td>
+						</tr>
+					</table>
 					<!--商品属性结束-->
 					
 					<!--商品相册开始-->
+					<table>
+						<tr>
+							<td class="label">上传文件：</td>
+							<td>
+								<input type="file" class="picFile" id="pic" value="未选择任何文件"/>
+								<br/>
+								<input type="text" class="picUrl" id="picUrl" value="或者输入图片外部URL"/>
+							</td>
+						</tr>
+						<tr>
+							<td class="label">
+								图片描述：
+							</td>
+							<td>
+								<textarea name="" rows="7" cols="42"></textarea>
+							</td>
+						</tr>
+					</table>	
 					<!--商品相册结束-->
 					
 					<!--关联商品开始-->
+					<table>
+						<tr>
+							<td>
+								<input type="text" />
+								<a class="btn">搜索</a>
+							</td>
+						</tr>
+						<tr class="title">
+							<td>可选商品</td>
+							<td>操作</td>
+							<td>和该商品关联的商品</td>
+						</tr>
+						<tr class="tr">
+							<td class="td">
+								<select class="sel" size="20"></select>
+							</td>
+							<td>
+								<p class="pBtn">
+									<a class="btn">>></a>
+								</p>
+								<p class="pBtn">
+									<a class="btn">></a>
+								</p>
+								<p class="pBtn">
+									<a class="btn"><</a>
+								</p>
+								<p class="pBtn">
+									<a class="btn"><<</a>
+								</p>
+							</td>
+							<td class="td">
+								<select class="sel" size="20"></select>
+							</td>
+						</tr>
+					</table>
 					<!--关联商品结束-->
 					
 					<!--配件开始-->
+					<table>
+						<tr>
+							<td>
+								<input type="text" />
+								<a class="btn">搜索</a>
+							</td>
+						</tr>
+						<tr class="title">
+							<td>可选商品</td>
+							<td>操作</td>
+							<td>和该商品关联的配件</td>
+						</tr>
+						<tr class="tr">
+							<td class="td">
+								<select class="sel" size="20"></select>
+							</td>
+							<td>
+								<p class="pBtn">
+									<a class="btn">>></a>
+								</p>
+								<p class="pBtn">
+									<a class="btn">></a>
+								</p>
+								<p class="pBtn">
+									<a class="btn"><</a>
+								</p>
+								<p class="pBtn">
+									<a class="btn"><<</a>
+								</p>
+							</td>
+							<td class="td">
+								<select class="sel" size="20"></select>
+							</td>
+						</tr>
+					</table>
 					<!--配件结束-->
 					
 					<!--关联文章开始-->
+					<table>
+						<tr>
+							<td>
+								<input type="text" />
+								<a class="btn">搜索</a>
+							</td>
+						</tr>
+						<tr class="title">
+							<td>可选文章</td>
+							<td>操作</td>
+							<td>和该商品关联的文章</td>
+						</tr>
+						<tr class="tr">
+							<td class="td">
+								<select class="sel" size="20"></select>
+							</td>
+							<td>
+								<p class="pBtn">
+									<a class="btn">>></a>
+								</p>
+								<p class="pBtn">
+									<a class="btn">></a>
+								</p>
+								<p class="pBtn">
+									<a class="btn"><</a>
+								</p>
+								<p class="pBtn">
+									<a class="btn"><<</a>
+								</p>
+							</td>
+							<td class="td">
+								<select class="sel" size="20"></select>
+							</td>
+						</tr>
+					</table>
 					<!--关联文章结束-->
+					
+					<!--确定和重置按钮-->
+					<div id="subBtn">
+						<button class="btn">确定</button>
+						<button class="btn">重置</button>
+					</div>
 				</form>
 			</div>
+		</div>
+		<div id="footer">
+			共执行 9 个查询，用时 0.024190 秒，Gzip 已禁用，内存占用 3.580 MB <br/>
+			版权所有 © 2005-2018 上海商派软件有限公司，并保留所有权利。
 		</div>
 	</body>
 </html>
