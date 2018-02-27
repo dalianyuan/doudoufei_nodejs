@@ -1,4 +1,4 @@
-body{
+html,body{
 	color: #192E32;
 }
 #header{
@@ -91,4 +91,3 @@ body{
     border-left: 1px solid #303030;
     margin-top: 15px;
 }
-

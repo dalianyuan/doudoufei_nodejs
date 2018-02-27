@@ -78,7 +78,7 @@ body{
 #menu-ul>li.list16{
 	background: #575757 url(../images/menu_16.png) 9px 0 no-repeat;
 }
-#menu-ul>li:hover{
+#menu-ul>li.hover{
 	background-color: #454545;
 }
 #menu-ul .ul2{

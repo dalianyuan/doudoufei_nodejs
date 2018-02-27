@@ -3,13 +3,29 @@
   <head>
   	<meta charset="UTF-8">
     <title>ECSHOP管理中心</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="stylesheets/reset.css"/>
   </head>
-	<frameset rows="118,*" framespacing="0" border="0">
-		<frame src="top" />
-		<frameset cols="198,*">
-			<frame src="menu"/>
-			<frame src="main"/>
-		</frameset>
-	</frameset>
+	<style>  
+    #iframeTop{  
+        width: 100%;  
+        height: 118px;  
+        margin-bottom: -3px;
+    }  
+    #iframeMenu{  
+        width: 14%;  
+        height: 674px;
+        float: left;  
+    }  
+    #iframeContent{  
+        width: 86%; 
+        height: 674px; 
+    }  
+	</style>  
+  <body>
+  	<div>  
+		    <iframe id="iframeTop" name="iframeTop" frameborder="0" src="top" scrolling="no"></iframe>  
+		    <iframe id="iframeMenu" name="iframeMenu" frameborder="0" src="menu" scrolling="auto"></iframe>  
+		    <iframe id="iframeContent" name="iframeContent" frameborder="0" src="content" scrolling="auto"></iframe>  
+		</div>
+  </body>
 </html>

@@ -36,8 +36,14 @@ router.get('/top', function(req, res, next) {
 router.get('/menu', function(req, res, next) {
   res.render('menu', {});
 });
+router.get('/content', function(req, res, next) {
+  res.render('content', {});
+});
 router.get('/main', function(req, res, next) {
   res.render('main', {});
+});
+router.get('/list', function(req, res, next) {
+  res.render('list', {});
 });
 
 module.exports = router;
