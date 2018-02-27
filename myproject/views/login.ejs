@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="stylesheets/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="stylesheets/login.css"/>
 		<link rel="stylesheet" type="text/css" href="font_eb5n4d1eujxde7b9/iconfont.css"/>
+		<script src="javascripts/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div id="logo">
@@ -15,14 +16,14 @@
 			<div id="centerLogo">
 				<img src="images/ecshop-logo.png"/>
 			</div>
-			<form action="">
+			<div class="form">
 				<div class="text">
 					<i class="iconfont icon-zhucedengluyonghuming"></i>
-					<input class="right" type="text" placeholder="用户名"/>
+					<input id="username" class="right" type="text" placeholder="用户名"/>
 				</div>
 				<div class="text">
 					<i class="iconfont icon-password_icon"></i>
-					<input class="right" type="text" placeholder="密码"/>
+					<input id="psw" class="right" type="text" placeholder="密码"/>
 				</div>
 				<div class="text ck">
 					<i class="iconfont icon-ecurityCode"></i>
@@ -30,18 +31,41 @@
 					<img class="" src="images/index.png"/>
 				</div>
 				<div class="text btn">
-					<button>登 录</button>
+					<button onclick="login()">登 录</button>
 				</div>
 				<p>
-					<input type="checkbox" name="" id="" />
+					<input type="checkbox" />
 					<span>保存登录信息</span>
 					<a href="javascript:;">忘记密码?</a>
 					<a href="javascript:;" class="right">去店铺首页>></a>
 				</p>
-			</form>
+			</div>
 			<div class="bottomLogo">
 				<img src="images/icloud-bar.png"/>
 			</div>
 		</div>
 	</body>
 </html>
+<script type="text/javascript">
+	function login(){
+		if( !$("#username").val() || !$("#psw").val() ){
+			alert( "用户名和密码都不能为空" );
+			return;
+		}
+		$.ajax({
+			type:"post",
+			url:"/api/login",
+			data:{
+				username:$("#username").val(),
+				psw:$("#psw").val()
+			},
+			success:function(res){
+				if( res.status == 1 ){
+					location.href = "index";
+				}else{
+					alert( res.message );
+				}
+			}
+		});
+	}
+</script>
