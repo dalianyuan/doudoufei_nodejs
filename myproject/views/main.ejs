@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="../public/stylesheets/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="../public/stylesheets/main.css"/>
+		<script src="../public/javascripts/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<title>ECSHOP Main</title>
 	</head>
 	<body>
@@ -320,7 +321,7 @@
 					<!--关联商品开始-->
 					<table>
 						<tr>
-							<td>
+							<td class="w246">
 								<input type="text" />
 								<a class="btn">搜索</a>
 							</td>
@@ -358,7 +359,7 @@
 					<!--配件开始-->
 					<table>
 						<tr>
-							<td>
+							<td class="w246">
 								<input type="text" />
 								<a class="btn">搜索</a>
 							</td>
@@ -396,7 +397,7 @@
 					<!--关联文章开始-->
 					<table>
 						<tr>
-							<td>
+							<td class="w246">
 								<input type="text" />
 								<a class="btn">搜索</a>
 							</td>
@@ -433,7 +434,7 @@
 					
 					<!--确定和重置按钮-->
 					<div id="subBtn">
-						<button class="btn">确定</button>
+						<button class="btn" id="btnOk">确定</button>
 						<button class="btn">重置</button>
 					</div>
 				</form>
@@ -445,3 +446,12 @@
 		</div>
 	</body>
 </html>
+<script type="text/javascript">
+	window.onload = function(){
+		$( "#bar span" ).click( function(){
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$("#form table").eq(index).addClass("tableOn").siblings().removeClass("tableOn");
+		} )
+	}
+</script>
