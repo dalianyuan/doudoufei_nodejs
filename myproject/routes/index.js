@@ -25,7 +25,10 @@ router.get('/main', function(req, res, next) {
   res.render('main', {});
 });
 router.get('/goods_detail', function(req, res, next) {
-  res.render('goods_detail', {});
+	GoodsModel.find({}, function(err, docs) {
+		console.log( docs );
+		res.render('goods_detail', {list: docs});
+	})
 });
 router.get('/list', function(req, res, next) {
 	GoodsModel.find({}, function(err, docs) {
@@ -47,7 +50,7 @@ router.post('/api/login', function(req, res){
 		} else {
 			console.log("登录失败，请检查您的用户名或者密码");
 			result.status = -109;
-			result.message = "登录失败，请检查您的用户名或者密码"
+			result.message = "登录失败，请检查您的用户名或者密码";
 			res.send(result);
 		}
 	})

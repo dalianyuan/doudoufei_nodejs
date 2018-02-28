@@ -20,7 +20,7 @@
 				</a>
 			</span>
 			<span class="span4 right">
-				<a href="javascript:;">添加新商品</a>
+				<a href="main" target="iframeContent">添加新商品</a>
 			</span>
 		</h1>
 		<!--商品列表title结束-->
@@ -69,7 +69,6 @@
 		</div>
 		<% } %>
         -->
-        
         <div id="list-div">
         	<table cellpadding="3" cellspacing="1">
         		<tr>
@@ -84,7 +83,7 @@
         			<th>虚拟销量</th>
         			<th>操作</th>
         		</tr>
-        		<% for(var i=0; i<list.length; i++) { %>
+        		<% for(var i=list.length-1; i>=0; i--) { %>
 					<tr>
 						<td><%= list[i].goods_name %></td>
 						<td><%= list[i].goods_id %></td>
@@ -104,7 +103,7 @@
 						<td><%= list[i].count %></td>
 						<td><%= list[i].goods_num %></td>
 						<td>
-							<a href="goods_detail" title="查看">
+							<a href="goods_detail" target="_blank" title="查看">
 								<img src="../images/icon_view.gif"/>
 							</a>
 							<a href="main" target="iframeContent" title="编辑">
@@ -139,9 +138,8 @@
         		</span>
         	</div>
         	<!--列表下的页码结束-->
+        	
         </div>
-        
-        
 		<!--商品列表显示结束-->
 		
 		<!--商品列表底部结束-->

@@ -5,6 +5,15 @@
 		<title></title>
 	</head>
 	<body>
-		商品详情页面
+		
+		<% for(var i=list.length-1; i>=0; i--) { %>
+		<div>
+			<div>商品名称：<%= list[i].goods_name %></div>
+			<div>商品价格：<%= list[i].goods_price %></div>
+			<div>库存<%= list[i].count %></div>
+			<img src="/uploadImgs/<%= list[i].pic %>" />
+		</div>
+		<% } %>
+		
 	</body>
 </html>

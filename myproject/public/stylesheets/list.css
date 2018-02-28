@@ -97,7 +97,7 @@ h1>.span4>a:hover{
 	line-height: 39px;
 	text-align: right;
 }
-#pageSize,#gotoPage{
+#pageSize{
 	width: 32px;
 	outline: 0;
 }
