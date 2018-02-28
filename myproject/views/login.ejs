@@ -61,6 +61,7 @@
 			},
 			success:function(res){
 				if( res.status == 1 ){
+					/*登录成功后跳转到后台主页*/
 					location.href = "index";
 				}else{
 					alert( res.message );

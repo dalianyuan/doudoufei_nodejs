@@ -24,8 +24,13 @@ router.get('/content', function(req, res, next) {
 router.get('/main', function(req, res, next) {
   res.render('main', {});
 });
-router.get('/goods_detail', function(req, res, next) {
-	GoodsModel.find({}, function(err, docs) {
+
+/* 
+ * 商品详情页面 
+ * req.params.anything是前端点击时候传到后端的当前商品的goods_id
+ * */
+router.get('/goods_detail/:anything', function(req, res, next) {
+	GoodsModel.find({goods_id:req.params.anything}, function(err, docs) {
 		console.log( docs );
 		res.render('goods_detail', {list: docs});
 	})
@@ -36,6 +41,7 @@ router.get('/list', function(req, res, next) {
 	})
 });
 
+/* 登录 */
 router.post('/api/login', function(req, res){
 	var username = req.body.username;
 	var psw = req.body.psw;
@@ -45,10 +51,10 @@ router.post('/api/login', function(req, res){
 	}
 	UserModel.find({username: username, psw: psw}, function(err, docs){
 		if(!err && docs.length > 0) {
-			console.log("登录成功");
+//			console.log("登录成功");
 			res.send(result);
 		} else {
-			console.log("登录失败，请检查您的用户名或者密码");
+//			console.log("登录失败，请检查您的用户名或者密码");
 			result.status = -109;
 			result.message = "登录失败，请检查您的用户名或者密码";
 			res.send(result);
@@ -56,6 +62,7 @@ router.post('/api/login', function(req, res){
 	})
 })
 
+/* 添加商品 */
 router.post("/add_goods", function(req, res){
 	var Form = new multiparty.Form({
 		uploadDir: "./public/uploadImgs"
