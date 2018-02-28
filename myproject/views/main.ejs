@@ -37,7 +37,7 @@
 			</div>
 			<div id="form">
 				<!--添加商品,用ajax提交数据时不需要form表单-->
-				<form id="frm" action="/api/add_goods" method="post" enctype="multipart/form-data">
+				<form id="frm" action="/add_goods" method="post" enctype="multipart/form-data">
 					<!--通用信息开始-->
 					<table class="tableOn">
 						<tr>
@@ -487,7 +487,8 @@
 //		form.append("goods_num", $("#goods_num").val());
 //		form.append("pic", document.getElementById("pic").files[0]);
 //		ajax.send(form); // form表单数据(post传参)
-
+		
+		//用form表单提交数据
 		$( "#frm" ).submit();
 	}
 </script>

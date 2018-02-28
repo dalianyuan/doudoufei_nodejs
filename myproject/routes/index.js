@@ -24,8 +24,13 @@ router.get('/content', function(req, res, next) {
 router.get('/main', function(req, res, next) {
   res.render('main', {});
 });
+router.get('/goods_detail', function(req, res, next) {
+  res.render('goods_detail', {});
+});
 router.get('/list', function(req, res, next) {
-  res.render('list', {});
+	GoodsModel.find({}, function(err, docs) {
+		res.render('list', {list: docs});
+	})
 });
 
 router.post('/api/login', function(req, res){
@@ -48,7 +53,7 @@ router.post('/api/login', function(req, res){
 	})
 })
 
-router.post("/api/add_goods", function(req, res){
+router.post("/add_goods", function(req, res){
 	var Form = new multiparty.Form({
 		uploadDir: "./public/uploadImgs"
 	})
@@ -71,10 +76,13 @@ router.post("/api/add_goods", function(req, res){
 		gm.pic = picName;
 		gm.save(function(err){
 			if(!err) {
-				res.render('list', {});
-//				res.send("商品保存成功");
+				/*商品添加成功之后跳转到列表页*/
+				GoodsModel.find({}, function(err, docs) {
+					res.render('list', {list: docs});
+				})
+//				res.send("商品添加成功");
 			} else {
-				res.send("商品保存失败");
+				res.send("商品添加失败");
 			}
 		})
 	})
