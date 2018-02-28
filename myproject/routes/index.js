@@ -60,6 +60,7 @@ router.post("/api/add_goods", function(req, res){
 		var goods_num = body.goods_num[0];
 		var picName = files.pic[0].path;
 		picName = picName.substr(picName.lastIndexOf("\\") + 1);
+//		console.log(goods_name,goods_id,goods_price,count,goods_num,picName);
 
 		var gm = new GoodsModel();
 		gm.goods_name = goods_name;
@@ -67,7 +68,7 @@ router.post("/api/add_goods", function(req, res){
 		gm.goods_price = goods_price;
 		gm.count = count;
 		gm.goods_num = goods_num;
-		gm.picName = picName;
+		gm.pic = picName;
 		gm.save(function(err){
 			if(!err) {
 				res.render('list', {});
