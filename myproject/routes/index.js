@@ -1,10 +1,31 @@
 var express = require('express');
 var router = express.Router();
 var UserModel = require( "../model/UserModel" );
+var GoodsModel = require( "../model/GoodsModel" );
+var multiparty = require( "multiparty" );
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('login', {});
+});
+
+router.get('/index', function(req, res, next) {
+  res.render('index', {});
+});
+router.get('/top', function(req, res, next) {
+  res.render('top', {});
+});
+router.get('/menu', function(req, res, next) {
+  res.render('menu', {});
+});
+router.get('/content', function(req, res, next) {
+  res.render('content', {});
+});
+router.get('/main', function(req, res, next) {
+  res.render('main', {});
+});
+router.get('/list', function(req, res, next) {
+  res.render('list', {});
 });
 
 router.post('/api/login', function(req, res){
@@ -29,7 +50,7 @@ router.post('/api/login', function(req, res){
 
 router.post("/api/add_goods", function(req, res){
 	var Form = new multiparty.Form({
-		uploadDir: "./public/images"
+		uploadDir: "./public/uploadImgs"
 	})
 	Form.parse(req, function(err, body, files){
 		var goods_name = body.goods_name[0];
@@ -49,31 +70,13 @@ router.post("/api/add_goods", function(req, res){
 		gm.picName = picName;
 		gm.save(function(err){
 			if(!err) {
-				res.send("商品保存成功");
+				res.render('list', {});
+//				res.send("商品保存成功");
 			} else {
 				res.send("商品保存失败");
 			}
 		})
 	})
 })
-
-router.get('/index', function(req, res, next) {
-  res.render('index', {});
-});
-router.get('/top', function(req, res, next) {
-  res.render('top', {});
-});
-router.get('/menu', function(req, res, next) {
-  res.render('menu', {});
-});
-router.get('/content', function(req, res, next) {
-  res.render('content', {});
-});
-router.get('/main', function(req, res, next) {
-  res.render('main', {});
-});
-router.get('/list', function(req, res, next) {
-  res.render('list', {});
-});
 
 module.exports = router;
