@@ -119,6 +119,9 @@ body,a{
 	line-height: 34px;
 	padding-left: 12px;
 }
+#info i{
+	margin-right: 242px;
+}
 #price{
     font-family: 'Arial';
     font-size: 18px;

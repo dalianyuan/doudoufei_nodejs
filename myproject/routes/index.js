@@ -31,6 +31,7 @@ router.get('/main', function(req, res, next) {
  * */
 router.get('/goods_detail/:anything', function(req, res, next) {
 	GoodsModel.find({goods_id:req.params.anything}, function(err, docs) {
+		console.log(docs);
 		res.render('goods_detail', {list: docs});
 	})
 });
