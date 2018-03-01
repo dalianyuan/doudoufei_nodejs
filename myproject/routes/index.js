@@ -11,7 +11,12 @@ router.get('/', function(req, res, next) {
 
 /*后台主页面*/
 router.get('/index', function(req, res, next) {
-  res.render('index', {});
+	//检查用户是否登录
+	if( req.session && req.session.username != null ){
+		res.render('index', {});
+	}else{
+		res.redirect( '/' );
+	}
 });
 
 /*后台主页面头部*/
@@ -68,6 +73,7 @@ router.post('/api/login', function(req, res){
 	UserModel.find({username: username, psw: psw}, function(err, docs){
 		if(!err && docs.length > 0) {
 //			console.log("登录成功");
+			req.session.username = username;//生成session
 			res.send(result);
 		} else {
 //			console.log("登录失败，请检查您的用户名或者密码");
