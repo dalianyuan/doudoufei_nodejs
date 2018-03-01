@@ -100,4 +100,23 @@ router.post("/add_goods", function(req, res){
 	})
 })
 
+/* 删除商品行 */
+router.post('/api/list', function(req, res, next) {
+	var goods_name = req.body.goods_name;
+	var goods_id = req.body.goods_id;
+	console.log(req.body);//{ goods_name: 'goods02', goods_id: '002' }
+	var del = { goods_name: goods_name, goods_id: goods_id };
+	GoodsModel.remove(del,function(err,result){
+	  if( !err ){
+	    console.log( "删除成功" );
+	  }else{
+	  	console.log( "删除失败" );
+	  }
+	  console.log(result);//{ n: 1, ok: 1 }
+	  res.send( result );
+	});
+	
+});
+
+
 module.exports = router;

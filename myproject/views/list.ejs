@@ -85,8 +85,8 @@
         		</tr>
         		<% for(var i=list.length-1; i>=0; i--) { %>
 					<tr>
-						<td><%= list[i].goods_name %></td>
-						<td><%= list[i].goods_id %></td>
+						<td id="goods_name"><%= list[i].goods_name %></td>
+						<td id="goods_id"><%= list[i].goods_id %></td>
 						<td><%= list[i].goods_price %></td>
 						<td>
 							<img src="../images/yes.gif"/>
@@ -113,7 +113,7 @@
 								<img src="../images/icon_copy.gif"/>
 							</a>
 							<a href="javascript:;" title="回收站">
-								<img src="../images/icon_trash.gif"/>
+								<img data-name="<%= list[i].goods_name %>" data-id="<%= list[i].goods_id %>" class="del" src="../images/icon_trash.gif"/>
 							</a>
 						</td>
 					</tr>
@@ -150,3 +150,27 @@
 		<!--商品列表底部结束-->
 	</body>
 </html>
+<script type="text/javascript">
+	window.onload = function(){
+		$( ".del" ).click( function(){
+			var that = this;
+			if( !confirm( "您确定要删除此件商品吗?" ) ){
+				return;
+			}
+			$.ajax({
+				type:"post",
+				url:"/api/list",
+				data:{
+					goods_name : $( this ).data( "name" ),
+					goods_id : $( this ).data( "id" )
+				},
+				success:function( res ){
+//					console.log( res );//{ n: 1, ok: 1 }
+					if( res.ok == 1 ){
+						$( that ).parent().parent().parent().remove();
+					}
+				}
+			});
+		} )
+	}
+</script>
