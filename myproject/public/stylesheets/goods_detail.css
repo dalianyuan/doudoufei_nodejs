@@ -91,7 +91,7 @@ body,a{
 	margin-bottom: 12px;
 }
 #detail .title{
-	line-height: 42px;
+	line-height: 52px;
 }
 #detail .fenlei{
 	width: 20%;
@@ -111,10 +111,14 @@ body,a{
 	width: 564px;
 }
 #info h1{
-	padding-bottom: 10px;
+	padding-bottom: 14px;
+	margin-bottom: 12px;
 	border-bottom: 1px solid #ccc;
 }
-
+#info>div{
+	line-height: 34px;
+	padding-left: 12px;
+}
 #price{
     font-family: 'Arial';
     font-size: 18px;
@@ -122,6 +126,10 @@ body,a{
     font-weight: bold;
 }
 
+#info>div#shopCar{
+	margin-top: 14px;
+	padding: 0;
+}
 #shopCar>img{
 	width: 100%;
 }

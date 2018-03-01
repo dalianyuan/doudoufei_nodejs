@@ -25,6 +25,11 @@
 					<ul class="left">
 						<li class="left"><a href="javascript:;">收藏本店&nbsp;&nbsp;&nbsp;</a></li>
 						<li class="left"><a href="javascript:;">关注我们</a></li>
+						<li class="left">
+							<a href="javascript:;">
+								<img src="../images/headTop_icon(1).png"/>
+							</a>
+						</li>
 					</ul>
 					<ul class="right">
 						<li class="left">欢迎光临本店,&nbsp;&nbsp;&nbsp;</li>
@@ -76,46 +81,52 @@
 			<div class="w1200">
 				<p class="title">
 					当前位置: <a href="javascript:;">首页</a> >
-					<% for(var i=list.length-1; i>=0; i--) { %>
-						<span><%= list[i].goods_name %></span>
-					<% } %>
+					<!--<% for(var i=list.length-1; i>=0; i--) { %>-->
+						<span><%= list[0].goods_name %></span>
+					<!--<% } %>-->
 				</p>
 				<div class="left fenlei">
 					<img src="../images/fenlei.png"/>
 				</div>
 				<div class="right main">
+					<!--
+						点击商品查看详情时，
+						数据库只查到当前点击的商品
+						但传到前端的数据list仍然是数组
+						不用for循环，只取[0]即可
+					-->
 					<div class="left">
-						<% for(var i=list.length-1; i>=0; i--) { %>
-							<img class="goodsImg" width="360" height="360" src="/uploadImgs/<%= list[i].pic %>" />
-						<% } %>
+						<!--<% for(var i=list.length-1; i>=0; i--) { %>-->
+							<img class="goodsImg" width="360" height="360" src="/uploadImgs/<%= list[0].pic %>" />
+						<!--<% } %>-->
 					</div>
 					<div id="info" class="right">
-						<% for(var i=list.length-1; i>=0; i--) { %>
-							<h1><%= list[i].goods_name %></h1>
-						<% } %>
+						<!--<% for(var i=list.length-1; i>=0; i--) { %>-->
+							<h1><%= list[0].goods_name %></h1>
+						<!--<% } %>-->
 						<div>
 							本店售价:
-							<% for(var i=list.length-1; i>=0; i--) { %>
-								<span id="price">￥<%= list[i].goods_price %>元</span>
-							<% } %>
+							<!--<% for(var i=list.length-1; i>=0; i--) { %>-->
+								<span id="price">￥<%= list[0].goods_price %> 元</span>
+							<!--<% } %>-->
 						</div>
 						<div>
 							商品货号:
-							<% for(var i=list.length-1; i>=0; i--) { %>
-								<span id="id"><%= list[i].goods_id %></span>
-							<% } %>
+							<!--<% for(var i=list.length-1; i>=0; i--) { %>-->
+								<span id="id"><%= list[0].goods_id %></span>
+							<!--<% } %>-->
 						</div>
 						<div>
 							商品库存:
-							<% for(var i=list.length-1; i>=0; i--) { %>
-								<span id="count"><%= list[i].count %></span>
-							<% } %>
+							<!--<% for(var i=list.length-1; i>=0; i--) { %>-->
+								<span id="count"><%= list[0].count %></span>
+							<!--<% } %>-->
 						</div>
 						<div>
 							上架时间:
-							<% for(var i=list.length-1; i>=0; i--) { %>
-								<span id="date"><%= list[i].create_Date %></span>
-							<% } %>
+							<!--<% for(var i=list.length-1; i>=0; i--) { %>-->
+								<span id="date"><%= list[0].create_Date %></span>
+							<!--<% } %>-->
 						</div>
 						<div id="shopCar">
 							<img src="../images/shopCar.png"/>
@@ -142,7 +153,5 @@
 		</div>
 		<!--商品底部结束-->
 		
-		
 	</body>
-
 </html>

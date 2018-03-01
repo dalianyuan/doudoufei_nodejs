@@ -31,10 +31,11 @@ router.get('/main', function(req, res, next) {
  * */
 router.get('/goods_detail/:anything', function(req, res, next) {
 	GoodsModel.find({goods_id:req.params.anything}, function(err, docs) {
-		console.log( docs );
 		res.render('goods_detail', {list: docs});
 	})
 });
+
+/*商品列表页*/
 router.get('/list', function(req, res, next) {
 	GoodsModel.find({}, function(err, docs) {
 		res.render('list', {list: docs});
