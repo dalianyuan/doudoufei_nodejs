@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 /*创建文档定义*/
 var Goods = new Schema({
     goods_name  : String,//商品名称
-    goods_id    : String,//货号
+    goods_id    : { type: String, unique: true },//货号
     goods_price : String,//本店价格
     count       : Number,//库存
     goods_num   : Number,//虚拟销量

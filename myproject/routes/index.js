@@ -7,22 +7,36 @@ var multiparty = require( "multiparty" );
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('login', {});
-});
+}); 
 
+/*后台主页面*/
 router.get('/index', function(req, res, next) {
   res.render('index', {});
 });
+
+/*后台主页面头部*/
 router.get('/top', function(req, res, next) {
   res.render('top', {});
 });
+
+/*后台主页面左侧导航菜单*/
 router.get('/menu', function(req, res, next) {
   res.render('menu', {});
 });
+
+/*后台主页面主要内容区*/
 router.get('/content', function(req, res, next) {
   res.render('content', {});
 });
+
+/*后台主页面添加商品区*/
 router.get('/main', function(req, res, next) {
   res.render('main', {});
+});
+
+/*添加商品失败页面*/
+router.get('/add_fail', function(req, res, next) {
+  res.render('add_fail', {});
 });
 
 /* 
@@ -92,9 +106,9 @@ router.post("/add_goods", function(req, res){
 				GoodsModel.find({}, function(err, docs) {
 					res.render('list', {list: docs});
 				})
-//				res.send("商品添加成功");
 			} else {
-				res.send("商品添加失败");
+  			res.render('add_fail', {});
+//			res.send( "商品添加失败,您添加的商品货号已存在。请根据左侧导航菜单继续操作。谢谢！" );
 			}
 		})
 	})
@@ -118,5 +132,15 @@ router.post('/api/list', function(req, res, next) {
 	
 });
 
+/* 搜索--按商品名称进行模糊查询 */
+router.post('/search_goods', function(req, res, next){
+	var form = new multiparty.Form();
+	form.parse(req, function(err, body, files) {
+	  var goods_keywords = body.goods_keywords[0];
+	  GoodsModel.find({ goods_name: { $regex: goods_keywords } }, function(err, docs) {
+	  	res.render('list', {list: docs});
+	  })
+	});
+})
 
 module.exports = router;

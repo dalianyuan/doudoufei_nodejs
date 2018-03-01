@@ -27,27 +27,27 @@
 		
 		<!--商品列表搜索栏开始-->
 		<div id="form-div">
-			<form action="">
+			<form id="form" action="/search_goods" method="post" enctype="multipart/form-data">
 				<img src="../images/icon_search.gif"/>
-				<select name="">
+				<select name="type">
 					<option value="">所有分类</option>
 					<option value="">衣服</option>
 					<option value="">电子产品</option>
 				</select>
-				<select name="">
+				<select name="mark">
 					<option value="">品牌</option>
 					<option value="">莫丽菲尔</option>
 					<option value="">联想</option>
 				</select>
-				<select name="">
+				<select name="all">
 					<option value="">全部</option>
 					<option value="">新品</option>
 					<option value="">精品</option>
 					<option value="">热销</option>
 				</select>
 				关键字
-				<input type="text" name="goods_name" id="goods_name" />
-				<button id="btn">搜索</button>
+				<input type="text" name="goods_keywords" id="goods_keywords" />
+				<button id="btn" onclick="search()">搜索</button>
 			</form>
 		</div>
 		<!--商品列表搜索栏结束-->
@@ -148,29 +148,36 @@
 			版权所有 © 2005-2018 上海商派软件有限公司，并保留所有权利。
 		</div>
 		<!--商品列表底部结束-->
+		
 	</body>
 </html>
 <script type="text/javascript">
-	window.onload = function(){
-		$( ".del" ).click( function(){
-			var that = this;
-			if( !confirm( "您确定要删除此件商品吗?" ) ){
-				return;
-			}
-			$.ajax({
-				type:"post",
-				url:"/api/list",
-				data:{
-					goods_name : $( this ).data( "name" ),
-					goods_id : $( this ).data( "id" )
-				},
-				success:function( res ){
-//					console.log( res );//{ n: 1, ok: 1 }
-					if( res.ok == 1 ){
-						$( that ).parent().parent().parent().remove();
-					}
-				}
-			});
-		} )
+	
+	/*点击搜索查询*/
+	function search(){
+		$( "#form" ).submit();
 	}
+	
+	/*点击删除商品行*/
+	$( ".del" ).click( function(){
+		var that = this;
+		if( !confirm( "您确定要删除此件商品吗?" ) ){
+			return;
+		}
+		$.ajax({
+			type:"post",
+			url:"/api/list",
+			data:{
+				goods_name : $( this ).data( "name" ),
+				goods_id : $( this ).data( "id" )
+			},
+			success:function( res ){
+//					console.log( res );//{ n: 1, ok: 1 }
+				if( res.ok == 1 ){
+					$( that ).parent().parent().parent().remove();
+				}
+			}
+		});
+	} )
+	
 </script>

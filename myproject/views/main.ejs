@@ -58,7 +58,7 @@
 						</tr>
 						<tr>
 							<td class="label">
-								<a href="javascript:;" title="点击此处查看提示信息">
+								<a href="javascript:;" class="tips" title="点击此处查看提示信息">
 									<img src="images/notice.gif"/>
 								</a>
 								商品货号：
@@ -112,7 +112,7 @@
 						</tr>
 						<tr>
 							<td class="label">
-								<a href="javascript:;" title="点击此处查看提示信息">
+								<a href="javascript:;" class="tips" title="点击此处查看提示信息">
 									<img src="images/notice.gif"/>
 								</a>
 								会员价格：
@@ -121,12 +121,12 @@
 								注册用户<input class="w58" type="text" value="-1"/>
 								代销用户<input class="w58" type="text" value="-1"/>
 								vip<input class="w58" type="text" value="-1"/>
-								<p class="notice">会员价格为-1时表示会员价按会员等级折扣率计算。你也可以为每个等级指定一个固定价格</p>
+								<p class="notice">会员价格为-1时表示会员价按会员等级折扣率计算</p>
 							</td>
 						</tr>
 						<tr>
 							<td class="label">
-								<a href="javascript:;" title="点击此处查看提示信息">
+								<a href="javascript:;" class="tips" title="点击此处查看提示信息">
 									<img src="images/notice.gif"/>
 								</a>
 								商品优惠价格：
@@ -152,7 +152,7 @@
 						</tr>
 						<tr>
 							<td class="label">
-								<a href="javascript:;" title="点击此处查看提示信息">
+								<a href="javascript:;" class="tips" title="点击此处查看提示信息">
 									<img src="images/notice.gif"/>
 								</a>
 								赠送消费积分数：
@@ -164,7 +164,7 @@
 						</tr>
 						<tr>
 							<td class="label">
-								<a href="javascript:;" title="点击此处查看提示信息">
+								<a href="javascript:;" class="tips" title="点击此处查看提示信息">
 									<img src="images/notice.gif"/>
 								</a>
 								赠送等级积分数：
@@ -176,7 +176,7 @@
 						</tr>
 						<tr>
 							<td class="label">
-								<a href="javascript:;" title="点击此处查看提示信息">
+								<a href="javascript:;" class="tips" title="点击此处查看提示信息">
 									<img src="images/notice.gif"/>
 								</a>
 								积分购买金额：
@@ -236,7 +236,7 @@
 					<table>
 						<tr>
 							<td class="label">
-								<a href="javascript:;" title="点击此处查看提示信息">
+								<a href="javascript:;" class="tips" title="点击此处查看提示信息">
 									<img src="images/notice.gif"/>
 								</a>
 								商品库存数量：
@@ -263,7 +263,7 @@
 						</tr>
 						<tr>
 							<td class="label">
-								<a href="javascript:;" title="点击此处查看提示信息">
+								<a href="javascript:;" class="tips" title="点击此处查看提示信息">
 									<img src="images/notice.gif"/>
 								</a>
 								商品简单描述：
@@ -279,7 +279,7 @@
 					<table>
 						<tr>
 							<td class="label">
-								<a href="javascript:;" title="点击此处查看提示信息">
+								<a href="javascript:;" class="tips" title="点击此处查看提示信息">
 									<img src="images/notice.gif"/>
 								</a>
 								商品类型：
@@ -458,6 +458,11 @@
 		var index = $(this).index();
 		$(this).addClass("active").siblings().removeClass("active");
 		$("#form table").eq(index).addClass("tableOn").siblings().removeClass("tableOn");
+	} )
+	
+	/*点击查看提示信息*/
+	$( ".tips" ).click( function(){
+		$( this ).parent().parent().find( ".notice" ).toggle();
 	} )
 	
 	// JQ的ajax不支持文件上传。
