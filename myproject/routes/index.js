@@ -39,28 +39,19 @@ router.get('/main', function(req, res, next) {
   res.render('main', {});
 });
 
+/*商品列表分页*/
+router.get('/list', function(req, res, next) {
+	GoodsModel.find({}, function(err, docs) {
+		console.log(docs.length);
+		res.render('list', {list: docs, length: docs.length});
+	})
+});
+
 /*添加商品失败页面*/
 router.get('/add_fail', function(req, res, next) {
   res.render('add_fail', {});
 });
 
-/* 
- * 商品详情页面 
- * req.params.anything是前端点击时候传到后端的当前商品的goods_id
- * */
-router.get('/goods_detail/:anything', function(req, res, next) {
-	GoodsModel.find({goods_id:req.params.anything}, function(err, docs) {
-		console.log(docs);
-		res.render('goods_detail', {list: docs});
-	})
-});
-
-/*商品列表页*/
-router.get('/list', function(req, res, next) {
-	GoodsModel.find({}, function(err, docs) {
-		res.render('list', {list: docs});
-	})
-});
 
 /* 登录 */
 router.post('/api/login', function(req, res){
@@ -83,6 +74,33 @@ router.post('/api/login', function(req, res){
 		}
 	})
 })
+
+/* 
+ * 商品详情页面 
+ * req.params.anything是前端点击时候传到后端的当前商品的goods_id
+ * */
+router.get('/goods_detail/:anything', function(req, res, next) {
+	GoodsModel.find({goods_id:req.params.anything}, function(err, docs) {
+		console.log(docs);
+		res.render('goods_detail', {list: docs});
+	})
+});
+
+/*商品列表分页*/
+router.get('/api/list', function(req, res, next) {
+	var gotoPage = parseInt(req.query.gotoPage);//当前页码
+	var pageSize = parseInt(req.query.pageSize);//每页显示商品数量
+	console.log( gotoPage,pageSize );
+	var query = GoodsModel.find({}).skip((gotoPage-1)*pageSize).limit(pageSize).sort({create_Date: -1});
+	query.exec(function(err, docs){
+		if( !err ){
+//			console.log(docs);
+			res.send( docs );
+		}else{
+			console.log( "商品分页失败" );
+		}
+	});
+});
 
 /* 添加商品 */
 router.post("/add_goods", function(req, res){
@@ -110,7 +128,7 @@ router.post("/add_goods", function(req, res){
 			if(!err) {
 				/*商品添加成功之后跳转到列表页*/
 				GoodsModel.find({}, function(err, docs) {
-					res.render('list', {list: docs});
+					res.render('list', {list: docs, length: docs.length});
 				})
 			} else {
   			res.render('add_fail', {});
@@ -140,13 +158,13 @@ router.post('/api/list', function(req, res, next) {
 
 /* 搜索--按商品名称进行模糊查询 */
 router.post('/search_goods', function(req, res, next){
-	var form = new multiparty.Form();
-	form.parse(req, function(err, body, files) {
-	  var goods_keywords = body.goods_keywords[0];
-	  GoodsModel.find({ goods_name: { $regex: goods_keywords } }, function(err, docs) {
-	  	res.render('list', {list: docs});
-	  })
-	});
+  var goods_keywords = req.body.goods_keywords;
+  console.log( goods_keywords );
+  GoodsModel.find({ goods_name: { $regex: goods_keywords } }, function(err, docs) {
+//			console.log( docs );
+			res.send( docs );
+  })
 })
+
 
 module.exports = router;

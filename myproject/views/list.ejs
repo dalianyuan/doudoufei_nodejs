@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="stylesheets/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="stylesheets/list.css"/>
+		<link rel="stylesheet" type="text/css" href="stylesheets/reset.css" />
+		<link rel="stylesheet" type="text/css" href="stylesheets/list.css" />
 		<script src="javascripts/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
 		<title></title>
 	</head>
+
 	<body>
 		<!--商品列表title开始-->
 		<h1>
@@ -24,11 +26,11 @@
 			</span>
 		</h1>
 		<!--商品列表title结束-->
-		
+
 		<!--商品列表搜索栏开始-->
 		<div id="form-div">
-			<form id="form" action="/search_goods" method="post" enctype="multipart/form-data">
-				<img src="../images/icon_search.gif"/>
+			<!--<form id="form" action="/search_goods" method="post" enctype="multipart/form-data">-->
+				<img src="../images/icon_search.gif" />
 				<select name="type">
 					<option value="">所有分类</option>
 					<option value="">衣服</option>
@@ -48,10 +50,10 @@
 				关键字
 				<input type="text" name="goods_keywords" id="goods_keywords" />
 				<button id="btn" onclick="search()">搜索</button>
-			</form>
+			<!--</form>-->
 		</div>
 		<!--商品列表搜索栏结束-->
-		
+
 		<!--商品列表显示开始-->
 		<!--
         	goods_name  : String,//商品名称
@@ -60,72 +62,74 @@
      		count       : Number,//库存
      		goods_num   : Number,//虚拟销量
      		pic         : String,//商品图片
-		<% for(var i=0; i<list.length; i++) { %>
-		<div>
-			<span><%= list[i].goods_name %></span>
-			<span><%= list[i].goods_price %></span>
-			<span><%= list[i].count %></span>
-			<img src="/uploadImgs/<%= list[i].pic %>" />
-		</div>
-		<% } %>
         -->
-        <div id="list-div">
-        	<table cellpadding="3" cellspacing="1">
-        		<tr>
-        			<th>商品名称</th>
-        			<th>商品货号</th>
-        			<th>价格</th>
-        			<th>上架</th>
-        			<th>新品</th>
-        			<th>精品</th>
-        			<th>热销</th>
-        			<th>库存</th>
-        			<th>虚拟销量</th>
-        			<th>操作</th>
-        		</tr>
-        		<% for(var i=list.length-1; i>=0; i--) { %>
-					<tr>
-						<td id="goods_name"><%= list[i].goods_name %></td>
-						<td id="goods_id"><%= list[i].goods_id %></td>
-						<td><%= list[i].goods_price %></td>
-						<td>
-							<img src="../images/yes.gif"/>
-						</td>
-						<td>
-							<img src="../images/no.gif"/>
-						</td>
-						<td>
-							<img src="../images/yes.gif"/>
-						</td>
-						<td>
-							<img src="../images/yes.gif"/>
-						</td>
-						<td><%= list[i].count %></td>
-						<td><%= list[i].goods_num %></td>
-						<td>
-							<a href="goods_detail/<%= list[i].goods_id %>" target="_blank" title="查看">
-								<img src="../images/icon_view.gif"/>
-							</a>
-							<a href="main" target="iframeContent" title="编辑">
-								<img src="../images/icon_edit.gif"/>
-							</a>
-							<a href="javascript:;" title="复制">
-								<img src="../images/icon_copy.gif"/>
-							</a>
-							<a href="javascript:;" title="回收站">
-								<img data-name="<%= list[i].goods_name %>" data-id="<%= list[i].goods_id %>" class="del" src="../images/icon_trash.gif"/>
-							</a>
-						</td>
-					</tr>
+		<div id="list-div">
+			<table id="table" cellpadding="3" cellspacing="1">
+				<tr>
+					<th>商品名称</th>
+					<th>商品货号</th>
+					<th>价格</th>
+					<th>上架</th>
+					<th>新品</th>
+					<th>精品</th>
+					<th>热销</th>
+					<th>库存</th>
+					<th>虚拟销量</th>
+					<th>操作</th>
+				</tr>
+				<% for(var i=list.length-1; i>=0; i--) { %>
+				<tr>
+					<td id="goods_name">
+						<%= list[i].goods_name %>
+					</td>
+					<td id="goods_id">
+						<%= list[i].goods_id %>
+					</td>
+					<td>
+						<%= list[i].goods_price %>
+					</td>
+					<td>
+						<img src="../images/yes.gif" />
+					</td>
+					<td>
+						<img src="../images/no.gif" />
+					</td>
+					<td>
+						<img src="../images/yes.gif" />
+					</td>
+					<td>
+						<img src="../images/yes.gif" />
+					</td>
+					<td>
+						<%= list[i].count %>
+					</td>
+					<td>
+						<%= list[i].goods_num %>
+					</td>
+					<td>
+						<a href="goods_detail/<%= list[i].goods_id %>" target="_blank" title="查看">
+							<img src="../images/icon_view.gif" />
+						</a>
+						<a href="main" target="iframeContent" title="编辑">
+							<img src="../images/icon_edit.gif" />
+						</a>
+						<a href="javascript:;" title="复制">
+							<img src="../images/icon_copy.gif" />
+						</a>
+						<a href="javascript:;" title="回收站">
+							<img data-name="<%= list[i].goods_name %>" data-id="<%= list[i].goods_id %>" class="del" src="../images/icon_trash.gif" />
+						</a>
+					</td>
+				</tr>
 				<% } %>
-        	</table>
-        	
-        	<!--列表下的页码开始-->
-        	<div id="page">
-        		总计 <span id="totalRecords">21</span> 个记录&nbsp;分为  <span id="totalPages">3
+			</table>
+
+			<!--列表下的页码开始-->
+			<div id="page">
+				总计 <span id="totalRecords" data-length="<%= length %>"><%= length %></span> 个记录&nbsp;分为 <span id="totalPages">3
         		</span> 页&nbsp;当前第 <span id="pageCurrent">1</span> 页,每页
-        		<input type="text" name="pageSize" id="pageSize" value="15"/>
-        		<span id="pageLink">
+				<input type="text" name="pageSize" id="pageSize" value="7" />
+				<span id="pageLink">
         			<a href="javascript:;">第一页</a>
         			<a href="javascript:;">上一页</a>
         			<a href="javascript:;">下一页</a>
@@ -136,48 +140,145 @@
         				<option value="3">3</option>
         			</select>
         		</span>
-        	</div>
-        	<!--列表下的页码结束-->
-        	
-        </div>
+			</div>
+			<!--列表下的页码结束-->
+
+		</div>
 		<!--商品列表显示结束-->
-		
+
 		<!--商品列表底部结束-->
 		<div id="footer">
-			共执行 9 个查询，用时 0.024190 秒，Gzip 已禁用，内存占用 3.580 MB <br/>
-			版权所有 © 2005-2018 上海商派软件有限公司，并保留所有权利。
+			共执行 9 个查询，用时 0.024190 秒，Gzip 已禁用，内存占用 3.580 MB <br/> 版权所有 © 2005-2018 上海商派软件有限公司，并保留所有权利。
 		</div>
 		<!--商品列表底部结束-->
-		
+
 	</body>
+
 </html>
 <script type="text/javascript">
 	
 	/*点击搜索查询*/
-	function search(){
-		$( "#form" ).submit();
+	function search() {
+		$.ajax({
+			type:"post",
+			url:"/search_goods",
+			data:{
+				goods_keywords: $( "#goods_keywords" ).val()
+			},
+			success:function( res ){
+				showList( res );
+				showPage();
+			}
+		});
 	}
 	
 	/*点击删除商品行*/
-	$( ".del" ).click( function(){
+	$("#table").on("click", ".del",  function() {
 		var that = this;
-		if( !confirm( "您确定要删除此件商品吗?" ) ){
+		if(!confirm("您确定要删除此件商品吗?")) {
 			return;
 		}
 		$.ajax({
-			type:"post",
-			url:"/api/list",
-			data:{
-				goods_name : $( this ).data( "name" ),
-				goods_id : $( this ).data( "id" )
+			type: "post",
+			url: "/api/list",
+			data: {
+				goods_name: $(this).data("name"),
+				goods_id: $(this).data("id")
 			},
-			success:function( res ){
-//					console.log( res );//{ n: 1, ok: 1 }
-				if( res.ok == 1 ){
-					$( that ).parent().parent().parent().remove();
+			success: function(res) {
+				//console.log( res );//{ n: 1, ok: 1 }
+				if(res.ok == 1) {
+					$(that).parent().parent().parent().remove();
 				}
 			}
 		});
+
+	})
+
+	/*----------点击分页操作-----------*/
+	fenye();
+	/* 用ajax请求数据 */
+	function fenye() {
+		$.ajax({
+			type: "get",
+			url: "/api/list",
+			data: {
+				gotoPage: $("#gotoPage").val(),
+				pageSize: $("#pageSize").val()
+			},
+			success: function(res) {
+				showList( res );
+			}
+		});
+	}
+	$("#gotoPage").change(function() {
+		fenye();
+		$( "#pageCurrent" ).html( $( this ).val() );
+	})
+	$( "#pageSize" ).blur( function(){
+		fenye();
+		showPage();
 	} )
+	
+	showPage();
+	/*分为几页*/
+	function showPage(){
+		var totalRecords = parseInt($( "#totalRecords" ).data().length);
+		var pageSize = parseInt($( "#pageSize" ).val());
+		var totalPages = Math.ceil(totalRecords/pageSize);
+		$( "#totalPages" ).html( totalPages );
+		
+		var str = "";
+		for( var i = 1; i <= totalPages; i++ ){
+			str += `<option value="${i}">${i}</option>`;
+		}
+		console.log( str );
+		$( "#gotoPage" ).html( str );
+	}
+	
+	function showList( res ){
+		var str = "";
+		for(var i = 0; i < res.length; i++) {
+			str += `
+			<tr>
+				<td id="goods_name">${res[i].goods_name}</td>
+				<td id="goods_id">${res[i].goods_id}</td>
+				<td>${res[i].goods_price}</td>
+				<td>
+					<img src="../images/yes.gif"/>
+				</td>
+				<td>
+					<img src="../images/no.gif"/>
+				</td>
+				<td>
+					<img src="../images/yes.gif"/>
+				</td>
+				<td>
+					<img src="../images/yes.gif"/>
+				</td>
+				<td>${res[i].count}</td>
+				<td>${res[i].goods_num}</td>
+				<td>
+					<a href="goods_detail/${res[i].goods_id}" target="_blank" title="查看">
+						<img src="../images/icon_view.gif"/>
+					</a>
+					<a href="main" target="iframeContent" title="编辑">
+						<img src="../images/icon_edit.gif"/>
+					</a>
+					<a href="javascript:;" title="复制">
+						<img src="../images/icon_copy.gif"/>
+					</a>
+					<a href="javascript:;" title="回收站">
+						<img data-name="${res[i].goods_num}" data-id="${res[i].goods_num}" class="del" src="../images/icon_trash.gif"/>
+					</a>
+				</td>
+			</tr>`;
+		}
+		$( "#table" ).html( str );
+		var tr = $( "<tr>" );
+		var trStr = "<th>商品名称</th><th>商品货号</th><th>价格</th><th>上架</th><th>新品</th><th>精品</th><th>热销</th><th>库存</th><th>虚拟销量</th><th>操作</th>";
+		tr.html( trStr );
+		$( "tr" ).first().before( tr );
+	}
 	
 </script>
