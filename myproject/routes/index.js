@@ -139,7 +139,7 @@ router.post("/add_goods", function(req, res){
 })
 
 /* 删除商品行 */
-router.post('/api/list', function(req, res, next) {
+router.post('/api/del_list', function(req, res, next) {
 	var goods_name = req.body.goods_name;
 	var goods_id = req.body.goods_id;
 	console.log(req.body);//{ goods_name: 'goods02', goods_id: '002' }

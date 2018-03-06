@@ -180,7 +180,7 @@
 		}
 		$.ajax({
 			type: "post",
-			url: "/api/list",
+			url: "/api/del_list",
 			data: {
 				goods_name: $(this).data("name"),
 				goods_id: $(this).data("id")
@@ -232,7 +232,7 @@
 		for( var i = 1; i <= totalPages; i++ ){
 			str += `<option value="${i}">${i}</option>`;
 		}
-		console.log( str );
+//		console.log( str );
 		$( "#gotoPage" ).html( str );
 	}
 	
