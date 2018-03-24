@@ -136,8 +136,6 @@
         			<a href="javascript:;">最末页</a>
         			<select name="gotoPage" id="gotoPage">
         				<option value="1">1</option>
-        				<option value="2">2</option>
-        				<option value="3">3</option>
         			</select>
         		</span>
 			</div>
@@ -186,7 +184,7 @@
 				goods_id: $(this).data("id")
 			},
 			success: function(res) {
-				//console.log( res );//{ n: 1, ok: 1 }
+//				console.log( res );//{ n: 1, ok: 1 }
 				if(res.ok == 1) {
 					$(that).parent().parent().parent().remove();
 				}
@@ -269,7 +267,7 @@
 						<img src="../images/icon_copy.gif"/>
 					</a>
 					<a href="javascript:;" title="回收站">
-						<img data-name="${res[i].goods_num}" data-id="${res[i].goods_num}" class="del" src="../images/icon_trash.gif"/>
+						<img data-name="${res[i].goods_name}" data-id="${res[i].goods_id}" class="del" src="../images/icon_trash.gif"/>
 					</a>
 				</td>
 			</tr>`;

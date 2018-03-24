@@ -2,8 +2,10 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="stylesheets/reset.css"/>
 		<title></title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/reset.css"/>
+		<!-- 引入 echarts.js -->
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.0.4/echarts.min.js"></script>
 		<style type="text/css">
 			body{
 			    background: url(../images/body_bj.jpg);
@@ -27,8 +29,10 @@
 				color: #eb8a3d;
 				text-decoration: underline;
 			}
-			div>img{
-				width: 100%;
+			#main{
+				width: 90%;
+				min-height: 400px;
+				padding: 87px 0 0 10%;
 			}
 		</style>
 	</head>
@@ -38,8 +42,33 @@
 				<a href="javascript:;">ECSHOP管理中心 </a>
 			</span>
 		</h1>
-		<div>
-			<img src="images/cont.png"/>
-		</div>
+		<div id="main"></div>
 	</body>
+	<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '02月订单统计'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
 </html>
